@@ -1,0 +1,203 @@
+import java.util.*;
+class Bank
+{
+	public static void main(String args[])
+	{
+		Account a=new Account();
+		a.menu();
+	}
+
+}
+class Account
+{
+	int balance=0,trans_detail;
+	String cust_name;
+	String cust_id;
+	String cnic;
+	String phone_no;
+	String city;
+	String account_type;
+	
+	void deposit(int amount)
+	{
+		if(amount>0)
+		{
+			balance=balance+amount;
+			trans_detail=amount;
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("DEPOSITED SUCCESSFULLY!!");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+		else
+		{
+			
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("AMOUNT MUST BE ABOVE 0");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+	}
+	
+	void withdraw(int amount)
+	{
+		if(amount>0)
+		{
+			balance=balance-amount;
+			trans_detail=-amount;
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("WITHDRAW SUCCESSFULLY!!");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+		else
+		{
+		    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("MOUNT MUST BE ABOVE 0");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+	}
+	
+	void bank_trans_detail()
+	{
+		if(trans_detail>0)
+		{
+		   	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("DEPOSITED MONEY:::"+trans_detail);
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+		else if(trans_detail<0)
+		{
+		    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("DEPOSITED AMOUNT :::"+Math.abs(trans_detail));
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}	
+		else
+		{
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("NO TRANSACTION HAS BEEN DONE!!");
+	    	System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		}
+	}
+
+	void menu()
+	{
+		int ch;
+		Scanner s =new Scanner(System.in);
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		System.out.println("~~~~WELCOME TO BANK MANAGEMENT SYSTEM ~~~~");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~~~~~GROUP MEMBERS~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~RABIA LATIF 20-SE-024~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~M. AWAIS  20-SE-001~~~~~~~~~~~~");
+		System.out.println("~~~~~SYED HAIDER ZUBAIR 20-SE-002~~~~~~~~~");
+		System.out.println("~~~~~~~~USMAN ALI SHAH 20-SE-016~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~~M. USMAN 20-SE-018~~~~~~~~~~~~");
+	    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~ SOFTWARE DESIGN AND ARCHITECTURE ~~~~");
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		System.out.println("******************************************");
+		do
+		{
+		    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("\n``````````````````MAIN MENU```````````````");
+			System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("1].CREATE ACCOUNT");
+			System.out.println("2].BALANCE ENQUIRY");
+			System.out.println("3].DEPOSIT MONEY");
+			System.out.println("4].WITHDRAW MONEY");
+			System.out.println("5].LAST TRANSACTION HISTORY");
+			System.out.println("6].EXIT");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+			System.out.println("ENTER YOUR CHOICE:::");
+			ch=s.nextInt();
+			
+			switch(ch)
+			{
+			    case 1:
+			        System.out.println("ENTER YOUR  NAME::: ");
+		            cust_name=s.next();
+		            System.out.println("ENTER CUSTOMER ID::: ");
+	                cust_id=s.next();
+	                System.out.println("ENTER CNIC NUMBER::: ");
+		            cnic=s.next();
+		            System.out.println("ENTER YOUR PHONE NUMBER::: ");
+	                phone_no=s.next();
+	                System.out.println("ENTER YOUR CITY::: ");
+		            city=s.next();
+		            System.out.println("ENTER YOUR ACCOUNT TYPE::: ");
+	                account_type=s.next();
+			        System.out.println("\nYOUR ACCOUNT HAS SUCCESSFULLY BEEN CREATED");
+			        System.out.println("\nYOUR ACCONUT DETAILS ARE:");
+			        System.out.println("\nNAME::: "+cust_name);
+			        System.out.println("\nID::: "+cust_id);
+			        System.out.println("\nCNIC NUMBER::: "+cnic);
+			        System.out.println("\nPHONE NUMBER::: "+phone_no);
+			        System.out.println("\nCITY::: "+city);
+			        System.out.println("\nACCOUNT TYPE ::: "+account_type);
+			        System.out.println("\nTHANK YOU FOR CREATING ACCOUNT");
+		            break;
+				case 2:
+		
+					System.out.println("ACCOUNT BALANCE::: "+balance);
+					
+					System.out.println("\n");
+					break;
+				case 3:
+					
+					System.out.println("ENTER THE AMOUNT TO DEPOSIT::: ");
+					int amount1=s.nextInt();
+					deposit(amount1);
+					System.out.println("\n");
+					break;
+				case 4:
+					
+					System.out.println("AVAILABLE BALANCE IS::: "+balance);
+					
+					System.out.println("ENTER THE AMOUNT YOU WANT TO WITHDRAW:::");
+					int amount2=s.nextInt();
+					withdraw(amount2);
+					System.out.println("\n");
+					break;
+				case 5:
+				    System.out.println("YOUR TRANSACTION HISTORY IS:::");
+					bank_trans_detail();
+					
+					System.out.println("\n");
+					break;
+				case 6:
+					System.out.println("########################################");
+					break;
+				default:
+					System.out.println("INVALID CHOICE!!! PLEASE ENTER VALID CHOICE ");
+					System.out.println("\n");
+			}		
+		}while(ch!=6);
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~THANKS FOR VISITING OUR BANK~~~~~~");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+	}
+}
